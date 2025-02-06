@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Text Effect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="text-container">
+        <h1 class="animated-text">Hover Me!</h1>
+    </div>
+    <script src="script.js"></script>
+</body>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    font-family: 'Arial', sans-serif;
+}
+
+.text-container {
+    position: relative;
+}
+
+.animated-text {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff7e5f);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 3s linear infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.animated-text:hover {
+    transform: scale(2.1);
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+</style>
+<script>
+    const textElement = document.querySelector('.animated-text');
+
+textElement.addEventListener('mouseenter', () => {
+    textElement.style.animation = 'shine 1.5s linear infinite';
+});
+
+textElement.addEventListener('mouseleave', () => {
+    textElement.style.animation = 'shine 3s linear infinite';
+});
+</script>
+</html>
